@@ -481,6 +481,53 @@
     "react-dom": {
       "version": "0.14.8"
     },
+    "react-router": {
+      "version": "2.0.0-rc4",
+      "dependencies": {
+        "invariant": {
+          "version": "2.2.1",
+          "dependencies": {
+            "loose-envify": {
+              "version": "1.1.0",
+              "dependencies": {
+                "js-tokens": {
+                  "version": "1.0.3"
+                }
+              }
+            }
+          }
+        },
+        "warning": {
+          "version": "2.1.0",
+          "dependencies": {
+            "loose-envify": {
+              "version": "1.1.0",
+              "dependencies": {
+                "js-tokens": {
+                  "version": "1.0.3"
+                }
+              }
+            }
+          }
+        },
+        "history": {
+          "version": "1.17.0",
+          "dependencies": {
+            "deep-equal": {
+              "version": "1.0.1"
+            },
+            "query-string": {
+              "version": "3.0.3",
+              "dependencies": {
+                "strict-uri-encode": {
+                  "version": "1.1.0"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "react-tap-event-plugin": {
       "version": "0.2.1",
       "dependencies": {
