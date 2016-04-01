@@ -1,7 +1,7 @@
 SignUp= React.createClass({
   render(){
     return (
-      <div>
+      <div className="signup">
         sign up page
       </div>
     );
