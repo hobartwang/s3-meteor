@@ -66,8 +66,8 @@ NavBar = React.createClass({
             value='/home'
             style={styles.tab} />
           <Tab
-            label={ currentUser ? 'account' : 'sign up'}
-            value={ currentUser ? 'account' : 'sign up'}
+            label={ currentUser ? 'account' : 'signup'}
+            value={ currentUser ? 'account' : 'signup'}
             style={styles.tab} />
           <Tab
             label='log in'
