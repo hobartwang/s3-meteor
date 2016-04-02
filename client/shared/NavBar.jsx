@@ -52,7 +52,15 @@ NavBar = React.createClass({
         marginTop: '-4px',
       },
     };
-    let currentUser = Meteor.user();
+    let currentUser = this.props.currentUser;
+    let logOutMenu;
+    if(currentUser) {
+      logOutMenu = (
+        <logOutMenu currentUser={currentUser} />
+      );
+    } else {
+      logOutMenu = '';
+    }
     return (
       <div className="app-header">
         <Tabs
@@ -74,6 +82,7 @@ NavBar = React.createClass({
             value='/login'
             style={styles.tab} />
         </Tabs>
+        { logOutMenu }
       </div>
     );
   }
