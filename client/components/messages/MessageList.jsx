@@ -1,4 +1,16 @@
+const { CircularProgress } = mui;
 MessageList = React.createClass({
+  componentDidMount(){
+    $(".loader").delay(800).fadeOut('slow',function(){
+      $("#messages").fadeIn('slow');
+      let height = $('#message-list')[0].scrollHeight;
+      $('#message-list').scrollTop(height);
+    });
+  },
+  componentDidUpdate(){
+    let height = $('#message-list')[0].scrollHeight;
+    $('#message-list').scrollTop(height);
+  },
   render() {
     const allMessages = _.map(this.props.messages, (message, key) => {
       return (
@@ -20,7 +32,12 @@ MessageList = React.createClass({
 
     return (
       <div id="message-list">
-        <div>
+        <CircularProgress
+          mode="indeterminate"
+          className="loader"
+          style={styles.circle}
+        />
+        <div id="messages">
           { allMessages }
         </div>
       </div>
