@@ -31,7 +31,7 @@ NavBar = React.createClass({
   _getSelectedIndex() {
     return this.context.router.isActive('/home') ? '/home' :
       this.context.router.isActive('/signup') ? '/signup' :
-      this.context.router.isActive('/account') ? '/account':
+      this.context.router.isActive('/account') ? '/account' :
       this.context.router.isActive('/login') ? '/login' : '';
   },
 
@@ -56,7 +56,7 @@ NavBar = React.createClass({
     let logOutMenu;
     if(currentUser) {
       logOutMenu = (
-        <logOutMenu currentUser={currentUser} />
+        <LogOutMenu currentUser={currentUser} />
       );
     } else {
       logOutMenu = '';
@@ -74,8 +74,8 @@ NavBar = React.createClass({
             value='/home'
             style={styles.tab} />
           <Tab
-            label={ currentUser ? 'account' : 'signup'}
-            value={ currentUser ? 'account' : 'signup'}
+            label={ currentUser ? 'account' : 'sign up' }
+            value={ currentUser ? '/account' : '/signup' }
             style={styles.tab} />
           <Tab
             label='log in'
