@@ -6,12 +6,21 @@ const {
 } = mui;
 
 Account = React.createClass({
+  mixins: [ReactMeteorData],
+  
+  getMeteorData() {
+    Meteor.subscribe("userData");
+    return {
+      currentUser: Meteor.user()
+    }
+  },
+
   getInitialState() {
     return {
       user: {},
     };
   },
-  
+
   _handleSubmit(e) {
     e.preventDefault();
     const username = this.refs.username.getValue();
@@ -25,7 +34,19 @@ Account = React.createClass({
       }
     });
   },
-
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
+  _handleClick(e) {
+    e.preventDefault();
+    Meteor.call('userProfile',this.state.user,(error) => {
+      if(error) {
+        console.log(error);
+        return;
+      }
+      this.context.router.push('/home');
+    });
+  },
   render() {
     let GitHubInfo;
     if(!_.isEmpty(this.state.user)) {
@@ -39,6 +60,10 @@ Account = React.createClass({
             onClick={this._handleClick} 
           />
         </div>
+      );
+    } else if(this.data.currentUser && this.data.currentUser.avatar) {
+      GitHubInfo = (
+        <UserInfo userInfo={this.data.currentUser} />
       );
     }
     return (
